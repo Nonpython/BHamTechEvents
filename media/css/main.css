@@ -1,0 +1,42 @@
+.header {
+	background-color: #8C3D45;
+	color:            #E5E1DE;
+	text-align:       center;
+	font-style:       bold;
+	font-size:        125%;
+	width:            80%;
+	margin-left:   auto;
+	margin-right:  auto;
+	border-spacing: 35%;
+	height: 300px;
+	background-image: url("../images/theme-gradient.png");
+	background-repeat: repeat-x;
+    background: -moz-linear-gradient(100% 100% 90deg, #8C3D45, #1a1a1a);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#1a1a1a), to(#8C3D45));
+  
+}
+
+table.center {
+	margin-left:   auto;
+	margin-right:  auto;
+}
+
+.name {
+	font-style: italic;
+	font-size: 200%;
+	
+}
+
+body {
+	background-color: #594B42;
+	color:            #E5E1DE;
+	font: 1.1em "Calisto MT", "Calibri";
+}
+
+.footer {
+	text-align:       center;
+}
+
+.preview {
+	background-color: #8C3D45;
+}
