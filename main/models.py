@@ -1,5 +1,7 @@
 from django.db import models
 from markupfield.fields import MarkupField
+from tagging.fields import TagField
+from tagging import register as tag_register
 
 class Location(models.Model):
 	"A location where events take place"
@@ -9,14 +11,8 @@ class Location(models.Model):
  	address      = models.CharField(max_length=255, blank=True)
 	title        = models.CharField(max_length=255)
 	slug         = models.SlugField(db_index=True)
-	description  = MarkupField(markup_type="textile")
+	description  = MarkupField(markup_type="markdown")
 	location_img = models.ImageField(upload_to="uploads/")
-
-class Tag(models.Model):
-		name = models.CharField(max_length=255)
-		
-		def __unicode__(self):
-			return u"Tag: %s" % name
 
 class Event(models.Model):
 	"One event"
@@ -25,11 +21,11 @@ class Event(models.Model):
 		verbose_name_plural = ('events')
 		ordering            = ('name',)
 	name        = models.CharField(max_length=255)
-	description = MarkupField(markup_type="textile")
+	description = MarkupField(markup_type="markdown")
 	added       = models.DateTimeField(auto_now_add=True)
 	location    = models.ForeignKey(Location)
 	website     = models.URLField(verify_exists=True)
-	tags		= models.ManyToManyField(Tag)
+	tags		= TagField()
 	freq        = models.CharField(max_length=7)
 	# if freq = DAILY,   this doesn't matter.
 	# if freq = WEEKLY,  this is the day of the week, in standard three letter form.
@@ -40,6 +36,8 @@ class Event(models.Model):
 	# or, a number between 1 and 53, followed by a three letter day name for recurrances like "The second thursday of April."
 	# (Week numbers follow ISO.8601.2004)
 	interval    = models.CharField(max_length=5)
+	
+tag_register(Event)
 
 class Occurrence(models.Model):
 	occurrence_of = models.ForeignKey(Event)
