@@ -17,8 +17,8 @@ class Location(models.Model):
 class Event(models.Model):
 	"One event"
 	class Meta:
-		verbose_name        = ('event')
-		verbose_name_plural = ('events')
+		verbose_name        = ('event',)
+		verbose_name_plural = ('events',)
 		ordering            = ('name',)
 	name        = models.CharField(max_length=255)
 	description = MarkupField(markup_type="markdown")
