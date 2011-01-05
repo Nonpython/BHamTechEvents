@@ -45,3 +45,9 @@ body {
 	color:            #E5E1DE;
 	font: "Calisto MT";
 }
+
+.roundcorners {
+	border-top-left-radius: 100px 500px;
+	border-top-right-radius: 100px 500px;
+	border-bottom-left-radius: 100px 50px;
+}
