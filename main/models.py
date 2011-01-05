@@ -26,17 +26,17 @@ class Event(models.Model):
 	location    = models.ForeignKey(Location)
 	website     = models.URLField(verify_exists=True)
 	tags		= TagField()
-	start         = models.TimeField()
-	end           = models.TimeField()
+	start       = models.TimeField()
+	end         = models.TimeField()
 	freq        = models.CharField(max_length=7)
 	# if freq = DAILY,   this doesn't matter.
-	# if freq = WEEKLY,  this is the day of the week, in standard three letter form.
-	# if freq = MONTHLY, this is a number, between 1 and 31 for recurrances like "The 23rd of every month".
-	# or, a number between 1 and 4, followed by the oppropriate three letter day name for recurrances,
+	# if freq = WEEKLY,  this is the day of the week, in standard two letter form.
+	# if freq = MONTHLY, this is a number between 1 and 4, followed by the oppropriate two letter day name.
 	# e.g. "The first Thursday of every month" would be 1TH.
 	# if freq = YEARLY, this is a number between 1 and 53, followed by a two letter day name for recurrances like "The second thursday of April."
-	# That example would be something like "16TH" (Week numbers follow ISO.8601.2004)
-	interval    = models.CharField(max_length=4)
+	# That example would be something like "14TH" (Week numbers follow ISO.8601.2004)
+	rule        = models.CharField(max_length=4)
+	interval    = models.PositiveSmallIntegerField(default=1)
 	
 tag_register(Event)
 
