@@ -9,6 +9,7 @@
 <link href="{{ MEDIA_URL }}css/custom-theme/jquery-ui-1.8.7.custom.css" rel="stylesheet" type="text/css" />
 <script type="application/javascript" src="{{ MEDIA_URL }}js/jquery.min.js" />
 <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery-ui.custom.min.js" />
+<script type="text/javascript" src="{{ MEDIA_URL }}js/header-tabs.js" />
 
 <link href="{{ MEDIA_URL }}wmd/wmd-minified.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="{{ MEDIA_URL }}wmd/showdown-minified.js"      />
@@ -23,7 +24,7 @@
 							<img src="{{ MEDIA_URL }}images/Hamster-logo.png" alt="The logo. It is a nerdy hamster."/>
 						</td>
 						<td>
-							<div class="name">
+							<div id="name">
 								<h1>B'ham Tech Events</h1>
 							</div>
 							<br />
@@ -57,8 +58,8 @@
 
 {% block footer %}
 <div id="footer">
-	This page is © 2010-2011 Hayes Williams.
+	This page is &#169; 2010-2011 Hayes Williams.
 	<br />
-	Logo © 2010 Jonathan Robbins.
+	Logo &#169; 2010 Jonathan Robbins.
 </div>
 {% endblock %}
