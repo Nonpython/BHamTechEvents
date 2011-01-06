@@ -1,0 +1,10 @@
+<div class="wmd-wrapper">
+    <div id="wmd-button-bar" class="wmd-panel"></div><br/>
+    <textarea class="wmd-panel wmd-input" {{ attributes|safe }}>{{ value }}</textarea><br/>
+    Preview
+    <div id="wmd-preview" class="wmd-panel"></div><br/>
+</div>
+<script type="text/javascript">// <![CDATA[
+    var WMD_TEXTAREA_ID = '{{ id }}'
+// ]]> </script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/wmd/wmd.js"></script>
