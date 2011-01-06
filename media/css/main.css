@@ -1,53 +1,42 @@
 @font-face {
-  font-family: "Calisto MT";
-  src: url("../Calisto MT.ttf");
-}
-
-@font-face {
-  font-family: "Calibri";
-  src: url("../Calibri.ttf");
-}
+  font-family: "Digital7Mono";
+  src: url("../fonts/digital-7-webfont.eot");
+  src: local("☺"), url("../fonts/digital-7-webfont.woff") format("woff"), url("../fonts/digital-7-webfont.ttf") format("truetype"), url("../fonts/digital-7-webfont.svg#webfont0FF0dFtO") format("svg");
+  font-weight: normal;
+  font-style: normal; }
 
 #header {
-	color:            #E5E1DE;
-	text-align:       center;
-	font-style:       bold;
-	font: 125% "Calisto MT";
-	width:            80%;
-	margin-left:   auto;
-	margin-right:  auto;
-	border-spacing: 35%;
-	height: 300px;
-	background-image: url("../images/theme-gradient.png");
-	background-repeat: repeat-x;
-    background-color: #1A1A1A;
-}
+  text-align: center;
+  font-style: bold;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  border-spacing: 35%;
+  height: 300px;
+  background-image: url("../images/theme-gradient-header.png");
+  background-repeat: repeat-x;
+  background-color: #1a1a1a; }
 
 table.center {
-	margin-left:   auto;
-	margin-right:  auto;
-}
+  margin-left: auto;
+  margin-right: auto; }
 
 #name {
-	font-style: italic;
-	font-size: 200%;
-	
-}
+  font: 200% "Digital-7"; }
 
 body {
-	background-color: #594B42;
-	color:            #E5E1DE;
-	font: 12pt "Calibri";
-}
+  background-color: #1a1a1a;
+  color: #e5e1de;
+  font: 12pt "Calibri";
+  color: #e5e1de; }
 
 #footer {
-	text-align:       center;
-	color:            #E5E1DE;
-	font: "Calisto MT";
-}
+  width: 80%;
+  text-align: center;
+  color: #1a1a1a; }
 
 .roundcorners {
-	border-top-left-radius: 100px 500px;
-	border-top-right-radius: 100px 500px;
-	border-bottom-left-radius: 100px 50px;
-}
+  border-top-left-radius: 100px 500px;
+  border-top-right-radius: 100px 500px;
+  border-bottom-left-radius: 100px 50px;
+  border-bottom-right-radius: 100px 50px; }
