@@ -1,6 +1,3 @@
 [submodule "media/wmd"]
 	path = media/wmd
 	url = git://github.com/Nonpython/wmd.git
-[submodule "media/js/corner"]
-	path = media/js/corner
-	url = git://github.com/malsup/corner.git
