@@ -3,3 +3,4 @@
 settings.py
 *.tmproj
 nbproject/*
+.sass-cache/*
