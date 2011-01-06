@@ -5,8 +5,9 @@ BhamTechEvents is a Django website for creating a index for events in any area. 
 What This Requires:
 -------------------
 
+- Python
+- Django
 - django-tagging
-- Compass
-- django-compass
+- Sass
 - django-openid-auth
 - dateutil
