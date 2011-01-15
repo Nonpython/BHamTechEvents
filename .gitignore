@@ -8,3 +8,5 @@ tagging/.svn/*
 tagging/templatetags/.svn/*
 tagging/tests/.svn/*
 test.db
+gravatar/.svn/
+gravatar/templatetags/.svn/
