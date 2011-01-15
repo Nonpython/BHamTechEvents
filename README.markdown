@@ -6,6 +6,5 @@ What This Requires:
 -------------------
 
 - Django: http://www.djangoproject.com/
-- django-tagging: http://code.google.com/p/django-tagging/
 - Sass: http://www.sass-lang.com/
 - dateutil: http://niemeyer.net/python-dateutil
