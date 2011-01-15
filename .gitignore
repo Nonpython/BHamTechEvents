@@ -4,3 +4,7 @@ settings.py
 *.tmproj
 nbproject/*
 .sass-cache/*
+tagging/.svn/*
+tagging/templatetags/.svn/*
+tagging/tests/.svn/*
+test.db
