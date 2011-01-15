@@ -106,3 +106,5 @@ EMAIL_HOST_PASSWORD  = "" # out.
 
 FORCE_LOWERCASE_TAGS = True
 TAGGING_AUTOCOMPLETE_JS_BASE_URL = MEDIA_URL + "js/"
+
+ASKIMET_API_KEY = "" # Get one here: https://akismet.com/signup/#free
