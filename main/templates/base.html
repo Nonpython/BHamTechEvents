@@ -4,62 +4,73 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>{{ title }}</title>
-
+ 
 <link href="{{ MEDIA_URL }}css/main.css" rel="stylesheet" type="text/css" />
 <link href="{{ MEDIA_URL }}css/custom-theme/jquery-ui-1.8.7.custom.css" rel="stylesheet" type="text/css" />
 <script type="application/javascript" src="{{ MEDIA_URL }}js/jquery.min.js" />
 <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery-ui.custom.min.js" />
 <script type="text/javascript" src="{{ MEDIA_URL }}js/header-tabs.js" />
-
+ 
 <link href="{{ MEDIA_URL }}wmd/wmd-minified.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="{{ MEDIA_URL }}wmd/showdown-minified.js"      />
 <script type="text/javascript" src="{{ MEDIA_URL }}wmd/wmd-minified.js"           />
-
+ 
 </head>
 <body>
-	<div id="header">
-				<table class="center">
-					<tr>
-						<td>
-							<img src="{{ MEDIA_URL }}images/Hamster-logo.png" alt="The logo. It is a nerdy hamster."/>
-						</td>
-						<td>
-							<div id="name">
-								<h1>B'ham Tech Events</h1>
-							</div>
-							<br />
-							A place to discover tech events in and around Bellingham, Washington.
-						</td>
-					</tr>
-				</table>
-			</div>
-			<div id="main_tabs">
-					<ul>
-						<li><a href="http://www.bhamtechevents.org/overview">Overview</a></li>
-						<li><a href="#event-tabs">Events</a></li>
-						<li><a href="#venue-tabs">Venues</a></li>
-					</ul>
-					<div id="overview">
-						
-					<div id="event-tabs">
-				     <ul>
-				         <li><a href="http://www.bhamtechevents.org/browse_events"><span>Browse Events</span></a></li>
-				         <li><a href="http://www.bhamtechevents.org/add_event"><span>Add an Event</span></a></li>
-				     </ul>
-					</div>
-					<div id="venue-tabs">
-				     <ul>
-				         <li><a href="http://www.bhamtechevents.org/browse_venues"><span>Browse Venues</span></a></li>
-				         <li><a href="http://www.bhamtechevents.org/add_event"><span>Add a Venue</span></a></li>
-				     </ul>
-				</div>
-			</div>
+    <div id="header">
+                <table class="center">
+                    <tr>
+                        <td>
+                            <img src="{{ MEDIA_URL }}images/Hamster-logo.png" alt="The logo. It is a nerdy hamster."/>
+                        </td>
+                        <td>
+                            <div id="name">
+                                <h1>B'ham Tech Events</h1>
+                            </div>
+                            <br />
+                            A place to discover tech events in and around Bellingham, Washington.
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="main_tabs">
+                    <ul>
+                        <li><a href="http://www.bhamtechevents.org/overview">Overview</a></li>
+                        <li><a href="#event-tabs">Events</a></li>
+                        <li><a href="#venue-tabs">Venues</a></li>
+                    </ul>
+                    <div id="overview">
+                         
+                    <div id="event-tabs">
+                     <ul>
+                         <li><a href="http://www.bhamtechevents.org/browse_events"><span>Browse Events</span></a></li>
+                         <li><a href="http://www.bhamtechevents.org/add_event"><span>Add an Event</span></a></li>
+                     </ul>
+                    </div>
+                    <div id="venue-tabs">
+                     <ul>
+                         <li><a href="http://www.bhamtechevents.org/browse_venues"><span>Browse Venues</span></a></li>
+                         <li><a href="http://www.bhamtechevents.org/add_event"><span>Add a Venue</span></a></li>
+                     </ul>
+                </div>
+            </div>
 {% endblock %}
 
-{% block footer %}
-<div id="footer">
-	This page is &#169; 2010-2011 Hayes Williams.
-	<br />
-	Logo &#169; 2010 Jonathan Robbins.
+{% block tagcloud %}
+<div id="flashcontent">
+	<a href="http://www.adobe.com/go/getflashplayer">
+		<img src="http://www.adobe.com/images/shared/download_buttons/get_adobe_flash_player.png" alt="Get Adobe Flash Player">
+	</a>
 </div>
+<script type="text/javascript">
+	var so = new SWFObject("{{ MEDIA_URL }}tagcloud.swf", "tagcloud", "600", "400", "7", "#ffffff");
+	so.addParam("wmode", "transparent");
+	so.addVariable("tcolor", "0x50C878");
+	so.addVariable("tcolor2", "0xc8c8c8");
+	so.addVariable("hicolor", "0xc85e50");
+	so.addVariable("tspeed", "75");
+	so.addVariable("distr", "true");
+	so.addVariable("xmlpath", "tagcloud.xml");
+	so.write("flashcontent");
+</script>
 {% endblock %}
