@@ -1,21 +1,24 @@
 @font-face {
-  font-family: "Digital7Mono";
+  font-family: "Digital-7";
   src: url("../fonts/digital-7-webfont.eot");
   src: local("☺"), url("../fonts/digital-7-webfont.woff") format("woff"), url("../fonts/digital-7-webfont.ttf") format("truetype"), url("../fonts/digital-7-webfont.svg#webfont0FF0dFtO") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Calibri";
+  src: url("calibri-webfont.eot");
+  src: local("☺"), url("calibri-webfont.woff") format("woff"), url("calibri-webfont.ttf") format("truetype"), url("calibri-webfont.svg#webfont4NP5JlBX") format("svg");
   font-weight: normal;
   font-style: normal; }
 
 #header {
   text-align: center;
   font-style: bold;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-  border-spacing: 35%;
-  height: 300px;
-  background-image: url("../images/theme-gradient-header.png");
-  background-repeat: repeat-x;
-  background-color: #1a1a1a; }
+  border: 4px solid black;
+  background-color: black;
+  background-image: -webkit-gradient(linear, 0% 1%, 0% 95%, from(rgba(255, 255, 255, 0.9)), to(rgba(26, 26, 26, 0.9)), color-stop(0.8, rgba(26, 26, 26, 0.25)));
+  background-image: -moz-linear-gradient(top, bottom, from(rgba(255, 255, 255, 0.9)), color-stop(80%, rgba(26, 26, 26, 0.25))); }
 
 table.center {
   margin-left: auto;
@@ -26,17 +29,17 @@ table.center {
 
 body {
   background-color: #1a1a1a;
-  color: #e5e1de;
+  color: #bebabc;
   font: 12pt "Calibri";
   color: #e5e1de; }
 
 #footer {
   width: 80%;
   text-align: center;
-  color: #1a1a1a; }
+  color: #00498f; }
 
 .roundcorners {
-  border-top-left-radius: 100px 500px;
-  border-top-right-radius: 100px 500px;
+  border-top-left-radius: 100px 50px;
+  border-top-right-radius: 100px 50px;
   border-bottom-left-radius: 100px 50px;
   border-bottom-right-radius: 100px 50px; }
