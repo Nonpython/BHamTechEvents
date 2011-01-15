@@ -37,7 +37,12 @@ class Event(models.Model):
 	# That example would be something like "14TH" (Week numbers follow ISO.8601.2004)
 	rule        = models.CharField(max_length=4)
 	interval    = models.PositiveSmallIntegerField(default=1)
-	
+	def set_tags(self, tags):
+		Tag.objects.update_tags(self, tags)
+    
+	def get_tags(self, tags):
+		return Tag.objects.get_for_object(self)
+
 tag_register(Event)
 
 class Occurrence(models.Model):
@@ -45,3 +50,8 @@ class Occurrence(models.Model):
 	date          = models.DateField()
 	def __unicode__(self):
 		return u'Occurrence of Event "%s" on %s' % (occurrence_of.name, date)
+
+class UserProfile(models.Model):
+    home_address = models.TextField()
+	likes = models.ManyToManyField(Event)
+    user = models.ForeignKey(User, unique=True)
