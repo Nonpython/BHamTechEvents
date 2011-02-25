@@ -94,6 +94,7 @@ INSTALLED_APPS = (
     'main',
     'tagging',
     'tagging_autocomplete',
+	'floppyforms',
   	'django.contrib.comments',
     'django.contrib.admin',
     'django.contrib.admindocs',
@@ -108,3 +109,7 @@ FORCE_LOWERCASE_TAGS = True
 TAGGING_AUTOCOMPLETE_JS_BASE_URL = MEDIA_URL + "js/"
 
 ASKIMET_API_KEY = "" # Get one here: https://akismet.com/signup/#free
+
+RECAPTCHA_PRIVKEY = "" # Your ReCaptcha private key
+RECAPTCHA_PUBKEY  = "" # Your ReCaptcha public key
+                       # Get them at https://www.google.com/recaptcha/admin/create

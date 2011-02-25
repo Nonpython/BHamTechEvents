@@ -9,3 +9,4 @@ What This Requires:
 - Sass: http://www.sass-lang.com/
 - dateutil: http://niemeyer.net/python-dateutil
 - Python Interface to the Akismet API - http://www.voidspace.org.uk/python/modules.shtml#akismet
+- Floppyforms - https://github.com/brutasse/django-floppyforms
