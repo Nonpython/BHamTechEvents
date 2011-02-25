@@ -2,6 +2,7 @@ from django.db import models
 from markupfield.fields import MarkupField
 from tagging.fields import TagField
 from tagging import register as tag_register
+from django.contrib.auth.models import User
 
 class Location(models.Model):
 	"A location where events take place"
@@ -39,7 +40,7 @@ class Event(models.Model):
 	interval    = models.PositiveSmallIntegerField(default=1)
 	def set_tags(self, tags):
 		Tag.objects.update_tags(self, tags)
-    
+
 	def get_tags(self, tags):
 		return Tag.objects.get_for_object(self)
 
@@ -53,7 +54,7 @@ class Occurrence(models.Model):
 
 class UserProfile(models.Model):
     home_address = models.TextField()
-	likes = models.ManyToManyField(Event)
+    likes = models.ManyToManyField(Event)
     user = models.ForeignKey(User, unique=True)
 
 from django.contrib.comments.signals import comment_was_posted
