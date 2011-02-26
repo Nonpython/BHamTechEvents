@@ -6,9 +6,10 @@ admin.autodiscover()
 urlpatterns = patterns('',
     (r'^', 'main.views.index'),
     (r'^tagcloudxml', 'main.views.tagcloudxml')
+    (r'user', 'main.views.user')
 	(r'^login', 'main.views.login.login'),
-	(r'^login/register', 'main.views.login.register ')
-	(r'^login/activate', 'main.views.login.activate')
+	(r'^register', 'main.views.login.register ')
+	(r'^register/activate', 'main.views.login.activate')
     (r'^view_event/(?P<event_id>\d+)', 'main.views.events.view_event'),
     (r'^add_event/', 'main.views.events.add_event'),
     (r'^browse_events/(?P<tag>.*)/', 'main.views.events.browse_events')
