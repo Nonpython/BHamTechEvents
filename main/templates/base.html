@@ -42,21 +42,23 @@
 
 </head>
 <body>
--
-		<table class="center">
-					<tr>
-						<td>
-							<img src="{{ MEDIA_URL }}images/Hamster-logo.png" alt="The logo. It is a nerdy hamster."/>
-						</td>
-						<td>
-							<div id="name">
-								<h1>B'ham Tech Events</h1>
-							</div>
-							<br />
-							A place to discover tech events in and around  Bellingham, Washington.
-						</td>
-					</tr>
-				</table>
+	<div id="header" class="center">-
+		<img src="{{ MEDIA_URL }}images/Hamster-logo.png" alt="The logo. It is a nerdy hamster." class="center"/>
+		<h1>B'ham Tech Events</h1>
+		<br />
+		<h2>A place to discover tech events in and around Bellingham, Washington.</h2>
+	</div>
+	<div class="user">
+	{% if loggedin %}
+		<img src="{{ user_img }}" class="center">
+		Hello, <a href="http://www.bhamtechevents.org/user">{{ name }}</a>.
+		<br>
+		(Not {{ name }}? Then click <a href="http://www.bhamtechevents.org/logout">here</a>.)
+	{% else %}
+		<a href="http:www.bhamtechevents.org/login">Log in</a> or <a href="http://www.bhamtechevents.org/register">register</a>.
+	{% endif %}
+	</div>
+		
 
 {% endblock %}
 
