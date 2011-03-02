@@ -1,4 +1,3 @@
-{% block header %}
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
   "http://www.w3.org/TR/HTML4/strict.dtd">
 <html lang="en">
@@ -8,29 +7,20 @@
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>{{ title }}</title>
 
-<link href="{{ MEDIA_URL }}css/main.css" rel="stylesheet" type="text/css" />
-
 <link href="http://kernest.com/fonts/liberation-sans-regular.css" media="screen" rel="stylesheet" type="text/css" />
 <link href="http://kernest.com/fonts/liberation-sans-bold.css" media="screen" rel="stylesheet" type="text/css" />
 <link href="http://kernest.com/fonts/liberation-sans-italic.css" media="screen" rel="stylesheet" type="text/css" />
 <link href="http://kernest.com/fonts/liberation-sans-bold-italic.css" media="screen" rel="stylesheet" type="text/css" />
+
+<link href="{{ MEDIA_URL }}css/main.css" rel="stylesheet" type="text/css" />
 
 <script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" />
 <script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/jquery-ui.min.js" />
 <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/themes/dot-luv-grinder/jquery-ui.css" type="text/css" rel="Stylesheet" />
 
 
-<script type="application/javascript" src="{{ MEDIA_URL }}js/superfish.js" />
-<script type="appication/javascript" src="{{ MEDIA_URL }}js/hoverIntent.js" />
-<link rel="stylesheet" media="screen" href="{{ MEDIA_URL }}css/superfish.css" /> 
-<link rel="stylesheet" media="screen" href="{{ MEDIA_URL }}css/superfish-navbar.css" />
-<script type="application/javascript"> 
-    $(document).ready(function(){ 
-        $("ul.sf-menu").superfish({ 
-            pathClass:  'current' 
-        }); 
-    }); 
-</script>
+<script type="application/javascript" src="{{ MEDIA_URL }}js/menus.js">
+<link rel="stylesheet" media="screen" href="{{ MEDIA_URL }}css/menus.css"> 
 
 <!-- SWFObject embed by Geoff Stearns geoff@deconcept.com http://blog.deconcept.com/swfobject/ -->
 <script type="text/javascript" src="swfobject.js"></script>
@@ -42,41 +32,47 @@
 
 </head>
 <body>
-	<div id="header" class="center">-
-		<img src="{{ MEDIA_URL }}images/Hamster-logo.png" alt="The logo. It is a nerdy hamster." class="center"/>
-		<h1>B'ham Tech Events</h1>
-		<br />
-		<h2>A place to discover tech events in and around Bellingham, Washington.</h2>
+	<div id="header">
+		<div class="center">-
+			<img src="{{ MEDIA_URL }}images/Hamster-logo.png" alt="The logo. It is a nerdy hamster." class="center"/>
+			<h1>B'ham Tech Events</h1>
+			<br />
+			<h2>A place to discover tech events in and around Bellingham, Washington.</h2>
+			</div>
+		<div class="user">
+			{% if loggedin %}
+				<img src="{{ user_img }}" class="center">
+				Hello, <a href="http://www.bhamtechevents.org/users/{{ user.username }}">{{ user.first_name }}</a>.
+				<br>
+				(Not {{ name }}? Then click <a href="http://www.bhamtechevents.org/logout">here</a>.)
+				{% else %}
+				<a href="http:www.bhamtechevents.org/login">Log in</a> or <a href="http://www.bhamtechevents.org/register">register</a>.
+				{% endif %}
+			</div>
+			<br
+			<a class="button" href="http://www.bhamtechevents.org/">Home</a>
+			<a class="button" href="http://www.bhamtechevents.org/browse_events/">Browse Events</a>
+			<a class="button" href="http://www.bhamtechevents.org/search_events/">
+	
+	
+	<br>
+	<div id="sidebar" class="center">
+		{% block sidebar %}
+		{% endblock %}
+		<div id="flashcontent">
+			<a href="http://www.adobe.com/go/getflashplayer">
+				<img src="http://www.adobe.com/images/shared/download_buttons/get_adobe_flash_player.png" alt="Get Adobe Flash Player">
+			</a>
+		</div>
+		<script type="text/javascript">
+			var so = new SWFObject("{{ MEDIA_URL }}tagcloud.swf", "tagcloud", "600", "400", "7", "#ffffff");
+			so.addParam("wmode", "transparent");
+			so.addVariable("tcolor", "0xbebabc");
+			so.addVariable("tcolor2", "0x00498f");
+			so.addVariable("hicolor", "0x00498f");
+			so.addVariable("tspeed", "75");
+			so.addVariable("distr", "true");
+			so.addVariable("xmlpath", "tagcloud.xml");
+			so.write("flashcontent");
+		</script>
 	</div>
-	<div class="user">
-	{% if loggedin %}
-		<img src="{{ user_img }}" class="center">
-		Hello, <a href="http://www.bhamtechevents.org/user">{{ name }}</a>.
-		<br>
-		(Not {{ name }}? Then click <a href="http://www.bhamtechevents.org/logout">here</a>.)
-	{% else %}
-		<a href="http:www.bhamtechevents.org/login">Log in</a> or <a href="http://www.bhamtechevents.org/register">register</a>.
-	{% endif %}
-	</div>
-		
-
-{% endblock %}
-
-{% block tagcloud %}
-<div id="flashcontent">
-	<a href="http://www.adobe.com/go/getflashplayer">
-		<img src="http://www.adobe.com/images/shared/download_buttons/get_adobe_flash_player.png" alt="Get Adobe Flash Player">
-	</a>
-</div>
-<script type="text/javascript">
-	var so = new SWFObject("{{ MEDIA_URL }}tagcloud.swf", "tagcloud", "600", "400", "7", "#ffffff");
-	so.addParam("wmode", "transparent");
-	so.addVariable("tcolor", "0x50C878");
-	so.addVariable("tcolor2", "0xc8c8c8");
-	so.addVariable("hicolor", "0xc85e50");
-	so.addVariable("tspeed", "75");
-	so.addVariable("distr", "true");
-	so.addVariable("xmlpath", "tagcloud.xml");
-	so.write("flashcontent");
-</script>
-{% endblock %}
