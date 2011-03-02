@@ -1,22 +1,31 @@
 #header {
-  background-image: url("../images/gradient-background.png") repeat-x; }
-
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.15, #1A1A1A),
+        color-stop(0.8, #0B3F6F)
+    );
+    background-image: -moz-linear-gradient(
+        center bottom,
+        #1A1A1A 15%,
+        #0B3F6F 80%
+    );
+}
+    
 .center {
-  vertical-align: center; }
-
+  vertical-align: center; 
+}
+ 
 body {
   background-color: #1a1a1a;
   color: #bebabc;
   font: 12pt "Calibri";
-  color: #e5e1de; }
-
+  color: #e5e1de;
+}
+ 
 #footer {
   width: 80%;
   text-align: center;
-  color: #00498f; }
-
-.roundcorners {
-  border-top-left-radius: 100px 50px;
-  border-top-right-radius: 100px 50px;
-  border-bottom-left-radius: 100px 50px;
-  border-bottom-right-radius: 100px 50px; }
+  color: #00498f;
+}
