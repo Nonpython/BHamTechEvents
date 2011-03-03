@@ -4,6 +4,13 @@ a.button {
     -webkit-border-radius: 36px;
     -khtml-border-radius: 36px;
     
+    vertical-align: center; 
+    
+    background-color: #1A1A1A;
+    
+}
+
+a.button_active {
     background-image: -webkit-gradient(
         linear,
         left bottom,
@@ -17,25 +24,6 @@ a.button {
         #1A1A1A 15%,
         #0B3F6F 80%
     );
-    
-    -moz-box-shadow: 4px 4px 4px #1a1a1a; /* FF3.5+ */
-    -webkit-box-shadow: 4px 4px 4px #1a1a1a; /* Saf3.0+, Chrome */
-    box-shadow: 4px 4px 4px #1a1a1a; /* Opera 10.5, IE9, Chrome 10+ */
-    
-    vertical-align: center; 
-    
-
-}
-
-a.button_active {
-     -moz-transform: rotate(7.5deg);  /* FF3.5+ */
-       -o-transform: rotate(7.5deg);  /* Opera 10.5 */
-  -webkit-transform: rotate(7.5deg);  /* Saf3.1+, Chrome */
-      -ms-transform: rotate(7.5deg);  /* IE9 */
-          transform: rotate(7.5deg);  
-             filter: progid:DXImageTransform.Microsoft.Matrix(/* IE6–IE9 */ 
-                     M11=0.9914448613738104, M12=-0.13052619222005157,M21=0.13052619222005157, M22=0.9914448613738104, sizingMethod='auto expand');
-               zoom: 1;
 }
 
 
