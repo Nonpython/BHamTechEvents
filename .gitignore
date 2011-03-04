@@ -10,3 +10,4 @@ tagging/tests/.svn/*
 test.db
 gravatar/.svn/
 gravatar/templatetags/.svn/
+.idea/
