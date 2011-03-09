@@ -1,6 +1,7 @@
 #!/usr/bin/env python
+from django.http import HttpResponse
 from django.template.context import Context
-from main.models import Occurrence
+from main.models.events import Occurrence
 from django.template import Template
 from django.contrib.syndication.views import Feed
 from django.utils.feedgenerator import Atom1Feed

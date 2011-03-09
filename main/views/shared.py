@@ -2,15 +2,9 @@
 # encoding: utf-8
 
 from django.http import HttpResponse
-from django.template.context import Context
-from main.models import Event, Occurrence
-from django.template import RequestContext, Template
+from main.models.events import Event
+from django.template import RequestContext
 from django.template.loader import get_template
-from django.contrib.syndication.views import Feed
-from django.utils.feedgenerator import Atom1Feed
-
-from datetime import datetime
-from dateutil.relativedelta import relativedelta
 from itertools import chain
 from math import log
 from elementtree.SimpleXMLWriter import XMLWriter
