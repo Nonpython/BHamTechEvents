@@ -17,6 +17,18 @@
             <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/loggedout.css">
         {% endif %}
 
+        {% if show_lsidebar %}
+            <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/show_lsidebar.css">
+        {% else %}
+            <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/hide_lsidebar.css">
+        {% endif %}
+
+        {% if show_rsidebar %}
+            <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/show_rsidebar.css">
+        {% else %}
+            <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/hide_rsidebar.css">
+        {% endif %}
+
         {# font includes #}
         <link href="http://kernest.com/fonts/liberation-sans-regular.css" media="screen" rel="stylesheet" type="text/css">
 	    <link href="http://kernest.com/fonts/liberation-sans-bold.css" media="screen" rel="stylesheet" type="text/css">
@@ -78,37 +90,41 @@
 
         <div id="content">
             <div id="lsidebar">
-                    <h3>Oh, hello! I didn't see you there.</h3>
-                        <p>
-                            <em>Bellingham Tech Events</em> (or BhamTechEvents for short) is a unified calender for you to find fun technology groups and events.
-                        </p>
-                        <p>
-                            We are an all-volunteer group, and we encourage anyone involved with a group to add it in here, or even better, get a leaderly figure (the person that announces when a meeting is would be best) to create an account, and add the group!
-                        </p>
-                    <h3>Follow upcoming events:</h3>
-                    <ul>
-                        <li><a href="http://www.bhamtechevents.org/feeds/atom" >Atom feed</a></li>
-                        <li><a href="http://www.bhamtechevents.org/feeds/rss" >RSS feed</a></li>
-                        <li><a href="http://www.bhamtechevents.org/feeds/ical">iCal Calender</a> </li>
-                        <li><a href="http://www.twitter.com/bhamtechevents">Twitter feed</a></li>
-
-                    </ul>
-                    <hr>
-                    <canvas width="300" height="300" id="tagcloud">
-                        <p>Anything in here will be replaced on browsers that support the canvas element</p>
+                    {% block lsidebar %}
+                        <h3>Oh, hello! I didn't see you there.</h3>
+                            <p>
+                                <em>Bellingham Tech Events</em> (or BhamTechEvents for short) is a unified calender for you to find fun technology groups and events.
+                            </p>
+                            <p>
+                                We are an all-volunteer group, and we encourage anyone involved with a group to add it in here, or even better, get a leaderly figure (the person that announces when a meeting is would be best) to create an account, and add the group!
+                            </p>
+                        <h3>Follow upcoming events:</h3>
                         <ul>
-                            {% for tag in tags %}
-                                <li><a href="http://www.bhamtechevents.org/events/bytag{{ tag.name }}">{{ tag.name }}</a></li>
-                            {% endfor %}
+                            <li><a href="http://www.bhamtechevents.org/feeds/ical">iCal calendar</a> </li>
+                            <li><a href="http://www.bhamtechevents.org/feeds/atom" >Atom feed</a></li>
+                            <li><a href="http://www.bhamtechevents.org/feeds/rss" >RSS feed</a></li>
+                            <li><a href="http://www.twitter.com/bhamtechevents">Twitter feed</a></li>
+
                         </ul>
-                    </canvas>
+                        <hr>
+                        <canvas width="300" height="300" id="tagcloud">
+                            <p>Anything in here will be replaced on browsers that support the canvas element</p>
+                            <ul>
+                                {% for tag in tags %}
+                                    <li><a href="http://www.bhamtechevents.org/events/bytag{{ tag.name }}">{{ tag.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </canvas>
+                    {% endblock %}
             </div>
             <div id="maincontent" >
-                {% lorem 10 p %}
+                {% block maincontent %}
+                {% endblock %}
             </div>
 
             <div id="rsidebar">
-                {% lorem 3 p %}
+                {% block rsidebar %}
+                {% endblock %}
             </div>
         </div>
 
