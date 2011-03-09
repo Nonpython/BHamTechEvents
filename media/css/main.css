@@ -5,6 +5,7 @@
 }
 
 #mainheader {
+    margin-left: 20px;
     width: 79%;
     float: left;
 }
@@ -113,6 +114,7 @@ p {
 #content {
     width: 100%;
     display: table;
+    border-spacing: 20px;
 }
 
 hr {
@@ -134,4 +136,6 @@ hr {
     -webkit-border-radius: 28px;
 
     border: 3px solid #183e19;
+    margin-left: 20px;
+    margin-right: 20px;
 }
