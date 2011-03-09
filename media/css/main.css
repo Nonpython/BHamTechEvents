@@ -25,7 +25,7 @@ body {
 }
 
 #lsidebar {
-    margin-right: 2%;
+    margin: 2%;
     width: 18%;
 
     background-color: #0972a5;
@@ -39,7 +39,7 @@ body {
 }
 
 #rsidebar {
-    margin-left: 2%;
+    margin: 2%;
     width: 18%;
 
     background-color: #0972a5;
@@ -80,9 +80,7 @@ a:visited {
 #maincontent {
     width: 54%;
 
-    margin-left: 2%;
-    margin-right: 2%;
-    margin-bottom: 2%;
+    margin: 2%;
 
     background-color: #0972a5;
 
