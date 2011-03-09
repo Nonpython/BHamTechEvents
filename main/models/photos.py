@@ -10,4 +10,5 @@ class TaggedPerson(models.Model):
     left = models.IntegerField()
     width = models.IntegerField()
     height = models.IntegerField()
+    image = models.ForeignKey(Picture, primary_key=True)
     person = models.ForeignKey(User)
