@@ -1,4 +1,5 @@
 {% load webdesign %}
+{% load humanize %}
 
 <!DOCTYPE html>
 <html lang="en-US">
@@ -111,7 +112,7 @@
                             <p>Anything in here will be replaced on browsers that support the canvas element</p>
                             <ul>
                                 {% for tag in tags %}
-                                    <li><a href="http://www.bhamtechevents.org/events/bytag{{ tag.name }}">{{ tag.name }}</a></li>
+                                    <li><a href="http://www.bhamtechevents.org/events/bytag/{{ tag.name }}">{{ tag.name }}</a></li>
                                 {% endfor %}
                             </ul>
                         </canvas>
@@ -119,6 +120,21 @@
             </div>
             <div id="maincontent" >
                 {% block maincontent %}
+                    <h3>What's going on?</h3>
+                    {% for day in week %}
+                        <div class="day">
+                            <h4>{{ day.date|naturalday: "l" }}</h4>
+                            {{ day.date|date: "F d, Y" }}
+                        </div>
+                        {% for event in day.event %}
+                            <div class="event">
+                                <a href="http://www.bhamtechevents.org/events/view/{{ event.id }}">{{ event.name|title }}</a>
+                                <br>
+                                {{ event.starttime|date: "g:i a" }}-{{ event.endtime|date: "g:i a" }}
+                                <a href="http://www.bhamtechevents.org/venues/view/{{ event.location.id }}">{{ event.location.name|title }}</a>
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
                 {% endblock %}
             </div>
 

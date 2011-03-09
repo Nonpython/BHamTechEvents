@@ -139,3 +139,28 @@ hr {
     margin-left: 20px;
     margin-right: 20px;
 }
+
+.date {
+    background-color: #0972a5;
+    background-image: url("../images/date-gradient.png");
+    background-repeat: no-repeat;
+    background-position: top right;
+    height: 50px;
+
+    border: 3px solid #183e19;
+    margin-right: 10px;
+}
+
+.event {
+
+    background-color: #0972a5;
+    height: 50px;
+
+    border-radius: 28px;
+    -moz-border-radius: 28px;
+    -webkit-border-radius: 28px;
+
+    border: 3px solid #183e19;
+    margin-right: 10px;
+
+}
