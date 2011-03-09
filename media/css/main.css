@@ -1,31 +1,140 @@
 #header {
-    background-image: -webkit-gradient(
-        linear,
-        left bottom,
-        left top,
-        color-stop(0.15, #1A1A1A),
-        color-stop(0.8, #0B3F6F)
-    );
-    background-image: -moz-linear-gradient(
-        center bottom,
-        #1A1A1A 15%,
-        #0B3F6F 80%
-    );
+    width 100%;
+    height: 190px;
+    margin: 0 auto;
+    margin-bottom: 2%;
 }
-    
+
+#mainheader {
+    width: 79%;
+    float: left;
+}
+
 .center {
-  vertical-align: center; 
+    vertical-align: middle;
 }
  
 body {
-  background-color: #1a1a1a;
+  background: #1a1a1a url("../images/gradient.png") repeat-x;
   color: #bebabc;
   font: 12pt "Liberation Sans";
-  color: #e5e1de;
 }
- 
+
+#logo {
+    color: #bebabc;
+    text-decoration: none;
+}
+
+#lsidebar {
+    margin-right: 2%;
+    width: 18%;
+
+    background-color: #0972a5;
+
+    border-radius: 28px;
+    -moz-border-radius: 28px;
+    -webkit-border-radius: 28px;
+
+    border: 3px solid #183e19;
+    display: table-cell;
+}
+
+#rsidebar {
+    margin-left: 2%;
+    width: 18%;
+
+    background-color: #0972a5;
+
+    border-radius: 28px;
+    -moz-border-radius: 28px;
+    -webkit-border-radius: 28px;
+
+    border: 3px solid #183e19;
+    display: table-cell;
+
+}
+
+#event-buttons {
+    display: none;
+}
+
+.inline {
+    display: inline;
+}
+
+h1 {
+    font-size: 15pt;
+}
+
+h2 {
+    font-size: 12pt;
+}
+
+a {
+    color: #183e19;
+}
+
+a:visited {
+    color: #112c12;
+}
+
+#maincontent {
+    width: 54%;
+
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+
+    background-color: #0972a5;
+
+    border-radius: 28px;
+    -moz-border-radius: 28px;
+    -webkit-border-radius: 28px;
+
+    border: 3px solid #183e19;
+    display: table-cell;
+}
+
+.ui-tabs {
+    clear: left;
+}
+
+img {
+    border-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 10px;
+}
+
+#content {
+    width: 100%;
+    display: table;
+}
+
+hr {
+    border-top: 1px solid #183e19;
+    border-bottom: 1px solid #183e19;
+    width: 100%;
+    height: 2px;
+    margin: 10px auto 0 0;
+    text-align: left;
+
+}
+
 #footer {
-  width: 80%;
-  text-align: center;
-  color: #00498f;
+    height: 5%;
+    background-color: #0972a5;
+
+    border-radius: 28px;
+    -moz-border-radius: 28px;
+    -webkit-border-radius: 28px;
+
+    border: 3px solid #183e19;
 }

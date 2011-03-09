@@ -1,0 +1,23 @@
+#user {
+    width: 18%;
+    border: 3px solid #183e19;
+    background: #0972a5;
+    float:right;
+    border-radius: 28px;
+    -moz-border-radius: 28px;
+    -webkit-border-radius: 28px;
+
+    height: 186px;
+}
+
+#position {
+    position: relative;
+    top: 25px;
+    left: 25px;
+}
+
+#user_picture {
+    border: 1px solid black;
+    float: left;
+
+}

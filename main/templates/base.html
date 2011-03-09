@@ -1,63 +1,124 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-   "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+{% load webdesign %}
+
+<!DOCTYPE html>
+<html lang="en-US">
     <head>
 
         <meta name="language" content="en">
-	    <meta http-equiv="Content-Language" content="en">
 	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
         <title>{{ title }}</title>
 
         {# visual stylesheets #}
         <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/main.css">
+        {% if loggedin %}
+            <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/loggedin.css">
+        {% else %}
+            <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/loggedout.css">
+        {% endif %}
 
         {# font includes #}
-        <link href="http://kernest.com/fonts/liberation-sans-regular.css" media="screen" rel="stylesheet" type="text/css" />
-	    <link href="http://kernest.com/fonts/liberation-sans-bold.css" media="screen" rel="stylesheet" type="text/css" />
-	    <link href="http://kernest.com/fonts/liberation-sans-italic.css" media="screen" rel="stylesheet" type="text/css" />
-	    <link href="http://kernest.com/fonts/liberation-sans-bold-italic.css" media="screen" rel="stylesheet" type="text/css" />
+        <link href="http://kernest.com/fonts/liberation-sans-regular.css" media="screen" rel="stylesheet" type="text/css">
+	    <link href="http://kernest.com/fonts/liberation-sans-bold.css" media="screen" rel="stylesheet" type="text/css">
+	    <link href="http://kernest.com/fonts/liberation-sans-italic.css" media="screen" rel="stylesheet" type="text/css">
+	    <link href="http://kernest.com/fonts/liberation-sans-bold-italic.css" media="screen" rel="stylesheet" type="text/css">
 
+     	<script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	    <script type="application/javascript" src="{{ MEDIA_URL }}js/jquery-ui-1.8.10.custom.min.js"></script>
+	    <link rel="stylesheet" media="screen" href="{{ MEDIA_URL }}css/jqueryui-seaglass/jquery-ui-1.8.10.custom.css">
 
+        <!--[if lt IE 9]><script type="text/javascript" src="http://explorercanvas.googlecode.com/svn/tags/m3/excanvas.compiled.js"></script><![endif]-->
+        <script src="http://www.goat1000.com/jquery.tagcanvas.min.js?1.6.1" type="text/javascript"></script>
+
+         <script type="text/javascript">
+             $(document).ready(function() {
+               if( ! $('#tagcloud').tagcanvas({
+                 textColour : '#1a1a1a',
+                 outlineThickness : 1,
+                 maxSpeed : 0.03,
+                 depth : 0.75
+               })) {
+                 // TagCanvas failed to load
+                 $('#myCanvasContainer').hide();
+               }
+             });
+         </script>
+
+        <script type="text/javascript" src="{{ MEDIA_URL }}js/autocomplete.js"></script>
+        <script type="text/javascript" src="{{ MEDIA_URL }}js/heightfix.js"></script>
     </head>
 
     <body>
         <div id="header">
             <div id="mainheader">
-                <img src="{{ MEDIA_URL }}images/Hamster-logo.png" alt="The logo. It is a nerdy hamster." class="center"/>
-				<h1 class="inline">Bellingham Tech Events</h1>
-             </div>
+                <a href="http://www.bhamtechevents.org/" id="logo">
+                    <img src="{{ MEDIA_URL }}images/Hamster-logo.png" alt="The logo. It is a nerdy hamster." class="center"/>
+				    <h1 class="inline">Bellingham Tech Events</h1>
+                </a>
+            </div>
 
             <div id="user">
-                {% if loggedin %}
-                	<img src="{{ user_img }}" class="center">
-					Hello, <a href="http://www.bhamtechevents.org/users/{{ user.username }}">{{ user.first_name }}</a>.
-					<br>
-					(Not {{ name }}? Then click <a href="http://www.bhamtechevents.org/logout">here</a>.)
-				{% else %}
-					<a href="http://www.bhamtechevents.org/login">Log in</a> or <a href="http://www.bhamtechevents.org/register">register</a>.
-				{% endif %}
+            {% if loggedin %}
+                <div id="position">
+             	    <img src="{{ user.img }}" id="user_picture">
+                    <p>
+	    		    	Hello, <a href="http://www.bhamtechevents.org/users/{{ user.username }}">{{ user.first_name }}</a>.
+	    		    	<br>
+		    	    	(Not {{ user.first_name }}? Then click <a href="http://www.bhamtechevents.org/logout">here</a>.)
+                    </p>
+                </div>
+
+			{% else %}
+				<a href="http://www.bhamtechevents.org/login">Log in</a> or <a href="http://www.bhamtechevents.org/register">register</a>.
+			{% endif %}
 
             </div>
+            <br>
         </div>
 
         <div id="content">
-            <div id="lsidebar" class="grid_1 ">
+            <div id="lsidebar">
+                    <h3>Oh, hello! I didn't see you there.</h3>
+                        <p>
+                            <em>Bellingham Tech Events</em> (or BhamTechEvents for short) is a unified calender for you to find fun technology groups and events.
+                        </p>
+                        <p>
+                            We are an all-volunteer group, and we encourage anyone involved with a group to add it in here, or even better, get a leaderly figure (the person that announces when a meeting is would be best) to create an account, and add the group!
+                        </p>
+                    <h3>Follow upcoming events:</h3>
+                    <ul>
+                        <li><a href="http://www.bhamtechevents.org/feeds/atom" >Atom feed</a></li>
+                        <li><a href="http://www.bhamtechevents.org/feeds/rss" >RSS feed</a></li>
+                        <li><a href="http://www.bhamtechevents.org/feeds/ical">iCal Calender</a> </li>
+                        <li><a href="http://www.twitter.com/bhamtechevents">Twitter feed</a></li>
 
+                    </ul>
+                    <hr>
+                    <canvas width="300" height="300" id="tagcloud">
+                        <p>Anything in here will be replaced on browsers that support the canvas element</p>
+                        <ul>
+                            {% for tag in tags %}
+                                <li><a href="http://www.bhamtechevents.org/events/bytag{{ tag.name }}">{{ tag.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </canvas>
             </div>
-
             <div id="maincontent" >
-
+                {% lorem 10 p %}
             </div>
 
             <div id="rsidebar">
-
+                {% lorem 3 p %}
             </div>
         </div>
 
         <div id="footer">
             <div id="bottom">
-
+                <p>
+                Code and design © 2010-2011 Hayes Williams
+                <br>
+                Logo © 2010 Michael Kaplan
+                </p>
             </div>
         </div>
     </body>
