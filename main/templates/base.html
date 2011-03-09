@@ -123,14 +123,14 @@
                     <h3>What's going on?</h3>
                     {% for day in week %}
                         <div class="day">
-                            <h4>{{ day.date|naturalday: "l" }}</h4>
-                            {{ day.date|date: "F d, Y" }}
+                            <h4>{{ day.date|naturalday:"l" }}</h4>
+                            {{ day.date|date:"F d, Y" }}
                         </div>
                         {% for event in day.event %}
                             <div class="event">
                                 <a href="http://www.bhamtechevents.org/events/view/{{ event.id }}">{{ event.name|title }}</a>
                                 <br>
-                                {{ event.starttime|date: "g:i a" }}-{{ event.endtime|date: "g:i a" }}
+                                {{ event.starttime|date:"g:i a" }}-{{ event.endtime|date:"g:i a" }}
                                 <a href="http://www.bhamtechevents.org/venues/view/{{ event.location.id }}">{{ event.location.name|title }}</a>
                             </div>
                         {% endfor %}
@@ -139,8 +139,7 @@
             </div>
 
             <div id="rsidebar">
-                {% block rsidebar %}
-                {% endblock %}
+                
             </div>
         </div>
 
