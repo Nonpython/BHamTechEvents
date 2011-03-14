@@ -80,7 +80,7 @@
             </div>
 
             <div id="user">
-            {% if loggedin %}
+            {% if user.is_authenticated %}
                 <div id="position">
              	    <img src="{{ user.img }}" id="user_picture">
                     <p>
