@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 class Picture(models.Model):
     title = models.CharField(max_length=100)
-    image = models.ImageField(upload_to="photos/")
+    image = models.ImageField(upload_to="event_photos/")
 
 class TaggedPerson(models.Model):
     top = models.IntegerField()
