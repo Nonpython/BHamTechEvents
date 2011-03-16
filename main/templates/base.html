@@ -10,25 +10,44 @@
 
         <title>{{ title }}</title>
 
-        {# visual stylesheets #}
-        <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/main.css">
-        {% if loggedin %}
+        <!-- Individual YUI CSS files -->
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/fonts/fonts-min.css">
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/reset/reset-min.css">
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/grids/grids-min.css">
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/base/base-min.css">
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/autocomplete/assets/skins/sam/autocomplete.css">
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/container/assets/skins/sam/container.css">
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/menu/assets/skins/sam/menu.css">
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/button/assets/skins/sam/button.css">
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/calendar/assets/skins/sam/calendar.css">
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/editor/assets/skins/sam/editor.css">
+        <!-- Individual YUI JS files --> 
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/yahoo/yahoo-min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/dom/dom-min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/event/event-min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/connection/connection-min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/datasource/datasource-min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/animation/animation-min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/autocomplete/autocomplete-min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/dragdrop/dragdrop-min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/container/container-min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/menu/menu-min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/event-mouseenter/event-mouseenter-min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/selector/selector-min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/event-delegate/event-delegate-min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/element/element-min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/button/button-min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/calendar/calendar-min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/editor/editor-min.js"></script>
+
+         {# visual stylesheets #}
+        {% if user.is_authenticated %}
             <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/loggedin.css">
         {% else %}
             <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/loggedout.css">
         {% endif %}
 
-        {% if show_lsidebar %}
-            <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/show_lsidebar.css">
-        {% else %}
-            <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/hide_lsidebar.css">
-        {% endif %}
-
-        {% if show_rsidebar %}
-            <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/show_rsidebar.css">
-        {% else %}
-            <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/hide_rsidebar.css">
-        {% endif %}
+        <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/main.css">
 
         {# font includes #}
         <link href="http://kernest.com/fonts/liberation-sans-regular.css" media="screen" rel="stylesheet" type="text/css">
@@ -36,21 +55,10 @@
 	    <link href="http://kernest.com/fonts/liberation-sans-italic.css" media="screen" rel="stylesheet" type="text/css">
 	    <link href="http://kernest.com/fonts/liberation-sans-bold-italic.css" media="screen" rel="stylesheet" type="text/css">
 
-     	<script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+     	<script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 
-        <!-- Individual YUI CSS files -->
-        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/assets/skins/sam/skin.css">
-        <!-- Individual YUI JS files -->
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/yahoo-dom-event/yahoo-dom-event.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/datasource/datasource-min.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/autocomplete/autocomplete-min.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/calendar/calendar-min.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/container/container_core-min.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/menu/menu-min.js"></script>
-
-
-        <!--[if lt IE 9]><script type="text/javascript" src="http://explorercanvas.googlecode.com/svn/tags/m3/excanvas.compiled.js"></script><![endif]-->
-        <script src="http://www.goat1000.com/jquery.tagcanvas.min.js?1.6.1" type="text/javascript"></script>
+        <!--[if lt IE 9]><script type="text/javascript" src="{{ MEDIA_URL }}js/excanvas.compiled.js"></script><![endif]-->
+        <script src="{{ MEDIA_URL }}js/jquery.tagcanvas.min.js" type="text/javascript"></script>
 
          <script type="text/javascript">
              $(document).ready(function() {
@@ -66,20 +74,30 @@
              });
          </script>
 
-        <script type="text/javascript" src="{{ MEDIA_URL }}js/autocomplete.js"></script>
+        <script type="text/javascript" src="{{ MEDIA_URL }}js/menu.js"></script>
         <script type="text/javascript" src="{{ MEDIA_URL }}js/heightfix.js"></script>
     </head>
 
-    <body>
-        <div id="header">
-            <div id="mainheader">
+    <body id="doc2">
+        <div id="hd" class="yui-gc">
+            <div id="mainheader" class="yui-u first">
                 <a href="http://www.bhamtechevents.org/" id="logo">
-                    <img src="{{ MEDIA_URL }}images/Hamster-logo.png" alt="The logo. It is a nerdy hamster." class="center"/>
-				    <h1 class="inline">Bellingham Tech Events</h1>
+                    {# Screw it. (Yes, I know I'm going to hell for using presentational tables.) #}
+                    {# TODO: Save soul. #}
+                    <table>
+                        <tc>
+                            <td>
+                                <img src="{{ MEDIA_URL }}images/Hamster-logo.png" alt="The logo. It is a nerdy hamster." class="center"/>
+                            </td>
+                            <td>
+                                <h1 class="inline">Bellingham Tech Events</h1>
+                            </td>
+                        </tr>
+                    </table>
                 </a>
             </div>
 
-            <div id="user">
+            <div id="user" class="yui-u">
             {% if user.is_authenticated %}
                 <div id="position">
              	    <img src="{{ user.img }}" id="user_picture">
@@ -93,13 +111,14 @@
 			{% else %}
 				<a href="http://www.bhamtechevents.org/login">Log in</a> or <a href="http://www.bhamtechevents.org/register">register</a>.
 			{% endif %}
-
             </div>
-            <br>
-        </div>
 
-        <div id="content">
-            <div id="lsidebar">
+            <br>
+            
+            </div>
+
+        <div class="yui-gd" id="bd">
+            <div id="lsidebar" class="yui-u first table-cell">
                     {% block lsidebar %}
                         <h3>Oh, hello! I didn't see you there.</h3>
                             <p>
@@ -127,7 +146,7 @@
                         </canvas>
                     {% endblock %}
             </div>
-            <div id="maincontent" >
+            <div id="maincontent" class="yui-u table-cell" >
                 {% block maincontent %}
                     <h3>What's going on?</h3>
                     {% for day in week %}
@@ -147,12 +166,9 @@
                 {% endblock %}
             </div>
 
-            <div id="rsidebar">
-                
-            </div>
         </div>
 
-        <div id="footer">
+        <div id="ft">
             <div id="bottom">
                 <p>
                 Code and design © 2010-2011 <a href="http://www.trueblogtales.com">Hayes Williams</a>

@@ -1,34 +1,18 @@
-#header {
-    width: 100%;
-    height: 190px;
-    margin: 0 auto;
-}
-
-#mainheader {
-    margin-left: 20px;
-    width: 79%;
-    float: left;
-}
-
-.center {
-    vertical-align: middle;
-}
- 
 body {
-  background: #1a1a1a url("../images/gradient.png") repeat-x;
   color: #bebabc;
   font: 12pt "Liberation Sans";
 }
 
-#logo {
+html {
+    background: #1a1a1a url("../images/gradient.png") repeat-x;
+}
+
+#logo, #navbar {
     color: #bebabc;
     text-decoration: none;
 }
 
-#lsidebar {
-    margin: 2%;
-    width: 18%;
-
+.yui-u {
     background-color: #0972a5;
 
     border-radius: 28px;
@@ -36,38 +20,14 @@ body {
     -webkit-border-radius: 28px;
 
     border: 3px solid #183e19;
-    display: table-cell;
-}
-
-#rsidebar {
-    margin: 2%;
-    width: 18%;
-
-    background-color: #0972a5;
-
-    border-radius: 28px;
-    -moz-border-radius: 28px;
-    -webkit-border-radius: 28px;
-
-    border: 3px solid #183e19;
-    display: table-cell;
-
 }
 
 #event-buttons {
     display: none;
 }
 
-.inline {
-    display: inline;
-}
-
 h1 {
-    font-size: 15pt;
-}
-
-h2 {
-    font-size: 12pt;
+    font-size: 150%;
 }
 
 a {
@@ -78,43 +38,8 @@ a:visited {
     color: #112c12;
 }
 
-#maincontent {
-    width: 54%;
-
-    margin: 2%;
-
-    background-color: #0972a5;
-
-    border-radius: 28px;
-    -moz-border-radius: 28px;
-    -webkit-border-radius: 28px;
-
-    border: 3px solid #183e19;
-    display: table-cell;
-}
-
-.ui-tabs {
-    clear: left;
-}
-
 img {
     border-style: none;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-    margin: 10px;
-}
-
-#content {
-    width: 100%;
-    display: table;
-    border-spacing: 20px;
 }
 
 hr {
@@ -127,8 +52,7 @@ hr {
 
 }
 
-#footer {
-    height: 5%;
+#ft {
     background-color: #0972a5;
 
     border-radius: 28px;
@@ -136,15 +60,11 @@ hr {
     -webkit-border-radius: 28px;
 
     border: 3px solid #183e19;
-    margin-left: 20px;
-    margin-right: 20px;
+
 }
 
 .date {
-    background-color: #0972a5;
-    background-image: url("../images/date-gradient.png");
-    background-repeat: no-repeat;
-    background-position: top right;
+    background: url("../images/date-gradient.png") no-repeat top right;
     height: 50px;
 
     border: 3px solid #183e19;
@@ -152,8 +72,7 @@ hr {
 }
 
 .event {
-
-    background-color: #0972a5;
+    background-color: #FF7518;
     height: 50px;
 
     border-radius: 28px;
@@ -162,5 +81,19 @@ hr {
 
     border: 3px solid #183e19;
     margin-right: 10px;
+}
 
+div {
+    padding: 5px;
+}
+
+#mainheader,
+#user {
+    height: 220px;
+}
+
+table,
+td,
+tr {
+    border: none;
 }
