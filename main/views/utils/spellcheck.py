@@ -33,4 +33,8 @@ class Hunspell:
                     pair[1] is not None,
                 zip(words, output)
                 )
+        output = {
+            "incorrect": [x[0] for x in output],
+            "suggestions": output
+        }
         return output

@@ -9,7 +9,8 @@ from itertools import chain
 from math import log
 from elementtree.SimpleXMLWriter import XMLWriter
 import cStringIO
-
+import utils.spellcheck
+import json
 
 def index(request):
     t = get_template("base.html")
@@ -67,7 +68,7 @@ def tagcloudxml(request):
     w.flush()
     return HttpResponse(xml.read())
 
-
-
-
-
+def spellchecker(request):
+    spellchecker = utils.spellcheck.Hunspell()
+    suggestions = spellchecker.suggest(request.POST["tocheck"])
+    return HttpResponse(json.dumps(suggestions))
