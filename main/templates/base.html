@@ -11,43 +11,23 @@
         <title>{{ title }}</title>
 
         <!-- Individual YUI CSS files -->
-        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/fonts/fonts-min.css">
-        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/reset/reset-min.css">
-        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/grids/grids-min.css">
-        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/base/base-min.css">
-        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/autocomplete/assets/skins/sam/autocomplete.css">
-        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/container/assets/skins/sam/container.css">
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/reset-fonts-grids/reset-fonts-grids.css">
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/base/base-min.css">     
         <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/menu/assets/skins/sam/menu.css">
-        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/button/assets/skins/sam/button.css">
-        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/calendar/assets/skins/sam/calendar.css">
-        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/editor/assets/skins/sam/editor.css">
-        <!-- Individual YUI JS files --> 
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/yahoo/yahoo-min.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/dom/dom-min.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/event/event-min.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/connection/connection-min.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/datasource/datasource-min.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/animation/animation-min.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/autocomplete/autocomplete-min.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/dragdrop/dragdrop-min.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/container/container-min.js"></script>
+        <!-- Individual YUI JS files -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/yahoo-dom-event/yahoo-dom-event.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/container/container_core-min.js"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/menu/menu-min.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/event-mouseenter/event-mouseenter-min.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/selector/selector-min.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/event-delegate/event-delegate-min.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/element/element-min.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/button/button-min.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/calendar/calendar-min.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/editor/editor-min.js"></script>
+
+
 
          {# visual stylesheets #}
-        {% if user.is_authenticated %}
-            <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/loggedin.css">
-        {% else %}
+        {% if not user.is_authenticated %}
             <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/loggedout.css">
         {% endif %}
 
         <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/main.css">
+        <link href="{{ MEDIA_URL }}css/menu.css">
 
         {# font includes #}
         <link href="http://kernest.com/fonts/liberation-sans-regular.css" media="screen" rel="stylesheet" type="text/css">
@@ -78,14 +58,14 @@
         <script type="text/javascript" src="{{ MEDIA_URL }}js/heightfix.js"></script>
     </head>
 
-    <body id="doc2">
+    <body id="doc2" class="yui-skin-sam">
         <div id="hd" class="yui-gc">
             <div id="mainheader" class="yui-u first">
                 <a href="http://www.bhamtechevents.org/" id="logo">
-                    {# Screw it. (Yes, I know I'm going to hell for using presentational tables.) #}
-                    {# TODO: Save soul. #}
+                    <!-- Screw it. (Yes, I know I'm going to hell for using presentational tables.) -->
+                    <!-- TODO: Save soul. -->
                     <table>
-                        <tc>
+                        <tr>
                             <td>
                                 <img src="{{ MEDIA_URL }}images/Hamster-logo.png" alt="The logo. It is a nerdy hamster." class="center"/>
                             </td>
@@ -114,7 +94,66 @@
             </div>
 
             <br>
-            
+        </div>
+
+                    <div id="topnavbar">
+                <div class="bd">
+                    <ul class="first-of-type">
+                        <li class="yuimenuitem">
+                            <a class="yuimenuitemlabel" href="http://www.bhamtechevents.org/">
+                                Home
+                            </a>
+                        </li>
+
+                        <li class="yuimenuitem">
+                            <a class="yuimenuitemlabel" href="#events">
+                                Events
+                            </a>
+
+                            <div class="yuimenu" id="events">
+                                <div class="bd">
+                                    <ul>
+                                        <li class="yuimenulabel">
+                                            <a class="yuimenuitemlabel" href="http://www.bhamtechevents.org/events/browse">
+                                                Browse
+                                            </a>
+                                        </li>
+
+                                        <li class="yuimenulabel">
+                                            <a class="yuimenuitemlabel" href="http://www.bhamtechevents.org/events/add">
+                                                Add
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li> <!-- end of events item -->
+
+                         <li class="yuimenuitem">
+                            <a class="yuimenuitemlabel" href="#venues">
+                                Venues
+                            </a>
+
+                            <div class="yuimenu" id="venues">
+                                <div class="bd">
+                                    <ul>
+                                        <li class="yuimenulabel">
+                                            <a class="yuimenuitemlabel" href="http://www.bhamtechevents.org/venues/browse">
+                                                Browse
+                                            </a>
+                                        </li>
+
+                                        <li class="yuimenulabel">
+                                            <a class="yuimenuitemlabel" href="http://www.bhamtechevents.org/events/add">
+                                                Add
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li> <!-- end of venues item-->
+                    </ul>
+                </div>
             </div>
 
         <div class="yui-gd" id="bd">
@@ -137,7 +176,7 @@
                         </ul>
                         <hr>
                         <canvas width="300" height="300" id="tagcloud">
-                            <p>Anything in here will be replaced on browsers that support the canvas element</p>
+                            <p>I'm sorry, but your browser does not support the &lt;canvas&gt; tag, meaning that this tagcloud will not work. Please upgrade to a better browser, such as Firefox, or Google Chrome.</p>
                             <ul>
                                 {% for tag in tags %}
                                     <li><a href="http://www.bhamtechevents.org/events/bytag/{{ tag.name }}">{{ tag.name }}</a></li>
