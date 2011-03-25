@@ -11,6 +11,7 @@ from elementtree.SimpleXMLWriter import XMLWriter
 import cStringIO
 import utils.spellcheck
 import json
+from HTMLParser import HTMLParser
 
 def index(request):
     t = get_template("base.html")
@@ -68,7 +69,22 @@ def tagcloudxml(request):
     w.flush()
     return HttpResponse(xml.read())
 
+
+class MLStripper(HTMLParser):
+    def __init__(self):
+        self.reset()
+        self.fed = []
+    def handle_data(self, d):
+        self.fed.append(d)
+    def get_data(self):
+        return ''.join(self.fed)
+
+def strip_tags(html):
+    s = MLStripper()
+    s.feed(html)
+    return s.get_data()
+
 def spellchecker(request):
     spellchecker = utils.spellcheck.Hunspell()
-    suggestions = spellchecker.suggest(request.POST["tocheck"])
+    suggestions = spellchecker.suggest(strip_tags(request.POST["tocheck"]))
     return HttpResponse(json.dumps(suggestions))
