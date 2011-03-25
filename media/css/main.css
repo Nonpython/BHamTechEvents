@@ -1,25 +1,24 @@
 body {
-  color: #bebabc;
-  font: 12pt "Liberation Sans";
+    font: 12pt "Liberation Sans";
 }
 
 html {
-    background: #1a1a1a url("../images/gradient.png") repeat-x;
+    background: #69d2e7;
 }
 
 #logo, #navbar {
-    color: #bebabc;
+    color: #183e19;
     text-decoration: none;
 }
 
-.yui-u {
-    background-color: #0972a5;
+#maincontent,
+#bd {
+    background: #A7DBD8;
+}
 
-    border-radius: 28px;
-    -moz-border-radius: 28px;
-    -webkit-border-radius: 28px;
-
-    border: 3px solid #183e19;
+#lsidebar,
+#maincontent {
+    padding: 5px;
 }
 
 #event-buttons {
@@ -27,7 +26,7 @@ html {
 }
 
 h1 {
-    font-size: 150%;
+    font-size: 177%;
 }
 
 a {
@@ -35,33 +34,11 @@ a {
 }
 
 a:visited {
-    color: #112c12;
+    color: #4d2307;
 }
 
 img {
     border-style: none;
-}
-
-hr {
-    border-top: 1px solid #183e19;
-    border-bottom: 1px solid #183e19;
-    width: 100%;
-    height: 2px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    text-align: left;
-
-}
-
-#ft {
-    background-color: #0972a5;
-
-    border-radius: 28px;
-    -moz-border-radius: 28px;
-    -webkit-border-radius: 28px;
-
-    border: 3px solid #183e19;
-
 }
 
 .date {
@@ -73,39 +50,34 @@ hr {
 }
 
 .event {
-    background-color: #FF7518;
     height: 50px;
-
-    border-radius: 28px;
-    -moz-border-radius: 28px;
-    -webkit-border-radius: 28px;
 
     border: 3px solid #183e19;
     margin-right: 10px;
 }
 
 div {
-    padding: 5px;
 }
 
-#mainheader,
-#user {
-    height: 220px;
+#mainheader {
+    padding-left: 10px;
+    vertical-align: middle;
 }
 
 #user {
+    margin:  5px;
+    background: #E0E4CC;
     width: 31%;
-    margin: 0;
-    background: #0972a5;
-    border-radius: 28px;
-    -moz-border-radius: 28px;
     -webkit-border-radius: 28px;
+    -moz-border-radius: 28px;
+    border-radius: 28px;
+    line-height: 150px;
+    height: 150px;
 }
 
 #maincontent {
-    width: 63%;
+    width: 739px;
     padding: 5px;
-    margin-left: 25px;
 }
 
 table,
@@ -127,26 +99,7 @@ tr {
 }
 
 #topnavbar {
-    background-image: -webkit-gradient(
-        linear,
-        left bottom,
-        left top,
-        color-stop(0.28, #0971A5),
-        color-stop(0.5, #183E19),
-        color-stop(0.82, #0971A5)
-    );
-    background-image: -moz-linear-gradient(
-        center bottom,
-        #0971A5 28%,
-        #183E19 50%,
-        #0971A5 82%
-    );
-    
-    border-radius: 28px;
-    -moz-border-radius: 28px;
-    -webkit-border-radius: 28px;
-
-    border: 3px solid #183e19;
+    margin-top: 0;
 }
 
 .yuimenuitem {
@@ -162,25 +115,38 @@ tr {
     color: #bebabc;
 }
 
+.yuimenubaritem,
 .yuimenubaritem-selected {
-    border-radius: 28px;
-    -moz-border-radius: 28px;
-    -webkit-border-radius: 28px;
-
-}
-
-div#events,
-div#venues,
-div.bd {
-        border-radius: 28px;
-    -moz-border-radius: 28px;
-    -webkit-border-radius: 28px;
 }
 
 .yui-menu-shadow-visible {
     visibility: hidden;
 }
 
-.yui-skin-sam {
-    color: #bebabc;
+#hd {
+    background: #69D2E7;
+
+}
+
+#ft {
+
+    padding-left: 20px;
+    margin-top: 0;
+    background: #E0E4CC;
+    font-size: 61%;
+}
+
+#lsidebar {
+    background: #E0E4CC;
+    width: 300px;
+    margin: 10px;
+    height: 100%;
+}
+
+.bd {
+    background: #A7DBD8;
+}
+
+#doc3 {
+    margin: 0;
 }
