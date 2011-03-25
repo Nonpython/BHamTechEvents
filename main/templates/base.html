@@ -12,14 +12,18 @@
 
         <!-- Individual YUI CSS files -->
         <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/reset-fonts-grids/reset-fonts-grids.css">
-        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/base/base-min.css">     
-        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/menu/assets/skins/sam/menu.css">
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/base/base-min.css">
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/assets/skins/sam/skin.css">
         <!-- Individual YUI JS files -->
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/yahoo-dom-event/yahoo-dom-event.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/container/container_core-min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/utilities/utilities.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/container/container-min.js"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/menu/menu-min.js"></script>
-
-
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/event-mouseenter/event-mouseenter-min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/selector/selector-min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/event-delegate/event-delegate-min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/button/button-min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/calendar/calendar-min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.8.2r1/build/slider/slider-min.js"></script>
 
          {# visual stylesheets #}
         {% if not user.is_authenticated %}
@@ -56,12 +60,18 @@
 
         <script type="text/javascript" src="{{ MEDIA_URL }}js/menu.js"></script>
         <script type="text/javascript" src="{{ MEDIA_URL }}js/heightfix.js"></script>
+
+        <style>
+            div {
+                margin: 0;
+            }
+        </style>
     </head>
 
-    <body id="doc2" class="yui-skin-sam">
+    <body id="doc2" class="yui-skin-sam" onLoad="P7_equalCols2(0,'lsidebar','canvas','maincontent','p')">
         <div id="hd" class="yui-gc">
             <div id="mainheader" class="yui-u first">
-                <a href="http://www.bhamtechevents.org/" id="logo">
+                <a href="/" id="logo">
                     <!-- Screw it. (Yes, I know I'm going to hell for using presentational tables.) -->
                     <!-- TODO: Save soul. -->
                     <table>
@@ -82,25 +92,25 @@
                 <div id="position">
              	    <img src="{{ user.img }}" id="user_picture">
                     <p>
-	    		    	Hello, <a href="http://www.bhamtechevents.org/users/{{ user.username }}">{{ user.first_name }}</a>.
+	    		    	Hello, <a href="/users/{{ user.username }}">{{ user.first_name }}</a>.
 	    		    	<br>
-		    	    	(Not {{ user.first_name }}? Then click <a href="http://www.bhamtechevents.org/logout">here</a>.)
+		    	    	(Not {{ user.first_name }}? Then click <a href="/logout">here</a>.)
                     </p>
                 </div>
 
 			{% else %}
-				<a href="http://www.bhamtechevents.org/login">Log in</a> or <a href="http://www.bhamtechevents.org/register">register</a>.
+				<a href="/login">Log in</a> or <a href="/register">register</a>.
 			{% endif %}
             </div>
 
             <br>
         </div>
 
-                    <div id="topnavbar">
+            <div id="topnavbar">
                 <div class="bd">
                     <ul class="first-of-type">
                         <li class="yuimenuitem">
-                            <a class="yuimenuitemlabel" href="http://www.bhamtechevents.org/">
+                            <a class="yuimenuitemlabel" href="/">
                                 Home
                             </a>
                         </li>
@@ -114,13 +124,13 @@
                                 <div class="bd">
                                     <ul>
                                         <li class="yuimenulabel">
-                                            <a class="yuimenuitemlabel" href="http://www.bhamtechevents.org/events/browse">
+                                            <a class="yuimenuitemlabel" href="/events/browse">
                                                 Browse
                                             </a>
                                         </li>
 
                                         <li class="yuimenulabel">
-                                            <a class="yuimenuitemlabel" href="http://www.bhamtechevents.org/events/add">
+                                            <a class="yuimenuitemlabel" href="/events/add">
                                                 Add
                                             </a>
                                         </li>
@@ -138,13 +148,13 @@
                                 <div class="bd">
                                     <ul>
                                         <li class="yuimenulabel">
-                                            <a class="yuimenuitemlabel" href="http://www.bhamtechevents.org/venues/browse">
+                                            <a class="yuimenuitemlabel" href="/venues/browse">
                                                 Browse
                                             </a>
                                         </li>
 
                                         <li class="yuimenulabel">
-                                            <a class="yuimenuitemlabel" href="http://www.bhamtechevents.org/events/add">
+                                            <a class="yuimenuitemlabel" href="/events/add">
                                                 Add
                                             </a>
                                         </li>
@@ -164,13 +174,13 @@
                                 <em>Bellingham Tech Events</em> (or BhamTechEvents for short) is a unified calender for you to find fun technology groups and events.
                             </p>
                             <p>
-                                We are an all-volunteer group, and we encourage anyone involved with a group to add it in here, or even better, get a leaderly figure (the person that announces when a meeting is would be best) to create an account, and add the group!
+                                We are an all-volunteer group, and we encourage anyone involved with a group to add it in here, but keep in mind, you will have to keep it updated, so if the group skips a meeting, you won't have disappointed potential members.
                             </p>
                         <h3>Follow upcoming events:</h3>
                         <ul>
-                            <li><a href="http://www.bhamtechevents.org/feeds/ical">iCal calendar</a> </li>
-                            <li><a href="http://www.bhamtechevents.org/feeds/atom" >Atom feed</a></li>
-                            <li><a href="http://www.bhamtechevents.org/feeds/rss" >RSS feed</a></li>
+                            <li><a href="/feeds/ical">iCal calendar</a> </li>
+                            <li><a href="/feeds/atom" >Atom feed</a></li>
+                            <li><a href="/feeds/rss" >RSS feed</a></li>
                             <li><a href="http://www.twitter.com/bhamtechevents">Twitter feed</a></li>
 
                         </ul>
@@ -179,11 +189,12 @@
                             <p>I'm sorry, but your browser does not support the &lt;canvas&gt; tag, meaning that this tagcloud will not work. Please upgrade to a better browser, such as Firefox, or Google Chrome.</p>
                             <ul>
                                 {% for tag in tags %}
-                                    <li><a href="http://www.bhamtechevents.org/events/bytag/{{ tag.name }}">{{ tag.name }}</a></li>
+                                    <li><a href="/events/bytag/{{ tag.name }}">{{ tag.name }}</a></li>
                                 {% endfor %}
                             </ul>
                         </canvas>
                     {% endblock %}
+            <p></p>
             </div>
             <div id="maincontent" class="yui-u table-cell" >
                 {% block maincontent %}
@@ -195,14 +206,15 @@
                         </div>
                         {% for event in day.event %}
                             <div class="event">
-                                <a href="http://www.bhamtechevents.org/events/view/{{ event.id }}">{{ event.name|title }}</a>
+                                <a href="/events/view/{{ event.id }}">{{ event.name|title }}</a>
                                 <br>
                                 {{ event.starttime|date:"g:i a" }}-{{ event.endtime|date:"g:i a" }}
-                                <a href="http://www.bhamtechevents.org/venues/view/{{ event.location.id }}">{{ event.location.name|title }}</a>
+                                <a href="/venues/view/{{ event.location.id }}">{{ event.location.name|title }}</a>
                             </div>
                         {% endfor %}
                     {% endfor %}
                 {% endblock %}
+                <p></p>
             </div>
 
         </div>
