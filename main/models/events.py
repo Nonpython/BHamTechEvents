@@ -13,7 +13,7 @@ class Location(models.Model):
     slug         = models.SlugField(db_index=True)
     description  = MarkupField(markup_type="markdown")
     location_img = models.ImageField(upload_to="uploads/")
-    hasWifi      = models.BooleanField()
+    tags         = TaggableManager()
     cost         = models.PositiveSmallIntegerField()
 
 class Event(models.Model):
