@@ -1,19 +1,14 @@
 body {
+    color: #2D353D;
     font: 12pt "Liberation Sans";
 }
 
 html {
-    background: #69d2e7;
+    background: #1a1a1a;
 }
 
 #logo, #navbar {
-    color: #183e19;
     text-decoration: none;
-}
-
-#maincontent,
-#bd {
-    background: #A7DBD8;
 }
 
 #lsidebar,
@@ -25,54 +20,36 @@ html {
     display: none;
 }
 
-h1 {
-    font-size: 177%;
-}
-
 a {
-    color: #183e19;
+    color: #492387;
 }
 
 a:visited {
-    color: #4d2307;
+    color: #373066;
 }
 
 img {
     border-style: none;
 }
 
-.date {
-    background: url("../images/date-gradient.png") no-repeat top right;
-    height: 50px;
-
-    border: 3px solid #183e19;
-    margin-right: 10px;
-}
-
-.event {
-    height: 50px;
-
-    border: 3px solid #183e19;
-    margin-right: 10px;
-}
-
 div {
 }
 
 #mainheader {
-    padding-left: 10px;
-    vertical-align: middle;
+    overflow: hidden;
+    width: 386px;
+}
+
+#mainheader,
+#user {
+    background: url("../images/Header-gradient.png") repeat-x;
+    height: 50px;
 }
 
 #user {
-    margin:  5px;
-    background: #E0E4CC;
-    width: 31%;
-    -webkit-border-radius: 28px;
-    -moz-border-radius: 28px;
-    border-radius: 28px;
-    line-height: 150px;
-    height: 150px;
+    margin:  0;
+    text-align: right;
+    height: 50px;
 }
 
 #maincontent {
@@ -124,29 +101,45 @@ tr {
 }
 
 #hd {
-    background: #69D2E7;
+    margin: 0;
+    margin-bottom: 10px;
 
 }
 
 #ft {
-
     padding-left: 20px;
     margin-top: 0;
-    background: #E0E4CC;
     font-size: 61%;
 }
 
 #lsidebar {
-    background: #E0E4CC;
+    background: rgba(166, 33, 193, 0.5);
     width: 300px;
     margin: 10px;
     height: 100%;
-}
-
-.bd {
-    background: #A7DBD8;
+    padding: 10px;
 }
 
 #doc3 {
     margin: 0;
+}
+
+#container {
+    width: 300px;
+}
+
+#bd,
+#ft {
+    background: #1a1a1a;
+    color: #ededed;
+}
+
+#bd a,
+#ft a {
+    color: #EDD0F9;
+}
+
+#bd a:visited,
+#ft a:visited {
+    color: #F3EBF5;
 }
